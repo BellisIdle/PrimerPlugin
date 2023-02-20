@@ -25,6 +25,7 @@ namespace PluginPrueba_EXILED
         public override void OnDisabled()
         {
             Exiled.Events.Handlers.Server.RoundStarted -= EventHandlers.OnRoundStarted;
+            Exiled.Events.Handlers.Player.Dying -= EventHandlers.OnPlayerDying;
             EventHandlers = null;
             Singleton = null;
             base.OnDisabled();
