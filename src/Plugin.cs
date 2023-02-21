@@ -22,6 +22,7 @@ namespace PluginPrueba_EXILED
             Exiled.Events.Handlers.Player.Dying += EventHandlers.OnPlayerDying;
             Exiled.Events.Handlers.Player.Shooting += EventHandlers.OnPlayerShooting;
             Exiled.Events.Handlers.Player.Verified += EventHandlers.OnPlayerVerified;
+            Exiled.Events.Handlers.Map.SpawningItem += EventHandlers.OnSpawningItem;
             base.OnEnabled();
         }
 
@@ -32,6 +33,7 @@ namespace PluginPrueba_EXILED
             Exiled.Events.Handlers.Player.Dying -= EventHandlers.OnPlayerDying;
             Exiled.Events.Handlers.Player.Shooting -= EventHandlers.OnPlayerShooting;
             Exiled.Events.Handlers.Player.Verified -= EventHandlers.OnPlayerVerified;
+            Exiled.Events.Handlers.Map.SpawningItem -= EventHandlers.OnSpawningItem;
             EventHandlers = null;
             Singleton = null;
             base.OnDisabled();

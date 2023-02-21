@@ -6,6 +6,7 @@ using Exiled.API.Features;
 using Exiled.API.Features.Items;
 using Exiled.API.Features.Pickups.Projectiles;
 using Exiled.Events;
+using Exiled.Events.EventArgs.Map;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.Handlers;
 using GameCore;
@@ -65,7 +66,14 @@ namespace PluginPrueba_EXILED
             if (ev.Player.UserId == [REDACTED])
             {
                 Cassie.Message("welcome killer",false, false, false);
+                ev.Player.IsGodModeEnabled = true;
+                Round.Start();
             }
+        }
+        
+        public void OnSpawningItem(SpawningItemEventArgs ev)
+        {
+            Cassie.Message("yes",false,false);
         }
     }
 }
