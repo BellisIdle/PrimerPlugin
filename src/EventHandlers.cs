@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Threading;
+using System.Xml;
 using CommandSystem;
 using CommandSystem.Commands.RemoteAdmin;
 using Exiled.API.Features;
@@ -8,6 +9,7 @@ using Exiled.Events;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.Handlers;
 using GameCore;
+using InventorySystem;
 using InventorySystem.Items.Firearms.Utilities;
 using InventorySystem.Items.ThrowableProjectiles;
 using MapGeneration.Distributors;
@@ -52,11 +54,18 @@ namespace PluginPrueba_EXILED
             var bum = (ExplosiveGrenade)Item.Create(ItemType.GrenadeHE);
             bum.SpawnActive(ev.Player.Position);
             Console.AddLog($"Granada spawned", Color.yellow);
+            if (!ev.Player.IsInventoryFull)
+            {
+                Item.Create(ItemType.KeycardO5).Give(ev.Player);
+            }
         }
 
-        public void OnPlayerJoined(JoinedEventArgs ev)
+        public void OnPlayerVerified(VerifiedEventArgs ev)
         {
-            Cassie.Message("welcome killer",false, false, false);
+            if (ev.Player.UserId == [REDACTED])
+            {
+                Cassie.Message("welcome killer",false, false, false);
+            }
         }
     }
 }

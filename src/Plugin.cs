@@ -21,7 +21,7 @@ namespace PluginPrueba_EXILED
             Exiled.Events.Handlers.Server.RoundStarted += EventHandlers.OnRoundStarted;
             Exiled.Events.Handlers.Player.Dying += EventHandlers.OnPlayerDying;
             Exiled.Events.Handlers.Player.Shooting += EventHandlers.OnPlayerShooting;
-            Exiled.Events.Handlers.Player.Joined += EventHandlers.OnPlayerJoined;
+            Exiled.Events.Handlers.Player.Verified += EventHandlers.OnPlayerVerified;
             base.OnEnabled();
         }
 
@@ -31,6 +31,7 @@ namespace PluginPrueba_EXILED
             Exiled.Events.Handlers.Server.RoundStarted -= EventHandlers.OnRoundStarted;
             Exiled.Events.Handlers.Player.Dying -= EventHandlers.OnPlayerDying;
             Exiled.Events.Handlers.Player.Shooting -= EventHandlers.OnPlayerShooting;
+            Exiled.Events.Handlers.Player.Verified -= EventHandlers.OnPlayerVerified;
             EventHandlers = null;
             Singleton = null;
             base.OnDisabled();
